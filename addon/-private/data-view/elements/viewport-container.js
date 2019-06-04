@@ -46,6 +46,11 @@ export function ViewportContainer() {
       return window.innerHeight;
     }
   });
+  Object.defineProperty(this, 'offsetWidth', {
+    get() {
+      return window.innerWidth;
+    }
+  });
 }
 
 ViewportContainer.prototype.addEventListener = function addEventListener(event, handler, options) {

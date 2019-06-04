@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Demo</h3>
+      {{!- BEGIN-SNIPPET horizontal-example }}
+        <div class="table-wrapper dark is-horizontal">
+          <div class="inner">
+            {{#vertical-collection model.numbers
+              estimateHeight=270
+              firstReached="loadAbove"
+              lastReached="loadBelow"
+              bufferSize=0
+
+              horizontal=true
+              
+              containerSelector=".is-horizontal"
+              as |item index|
+            }}
+              {{number-slide isDynamic=true isHorizontal=true item=item index=index}}
+            {{/vertical-collection}}
+          </div>
+        </div>
+      {{!- END-SNIPPET }}
+    </div>
+    <div class="col-sm-12">
+      <h3>Horizontal</h3>
+
+      <h4>Code for Demo</h4>
+      {{code-snippet name="horizontal-example.hbs"}}
+    </div>
+  </div>
+</div>

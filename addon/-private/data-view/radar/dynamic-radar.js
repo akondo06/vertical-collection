@@ -172,7 +172,8 @@ export default class DynamicRadar extends Radar {
       skipList,
 
       _occludedContentBefore,
-      _transformScale
+      _transformScale,
+      horizontal
     } = this;
 
     const numToMeasure = measureLimit !== null
@@ -186,17 +187,16 @@ export default class DynamicRadar extends Radar {
       const previousItem = orderedComponents[i - 1];
       const itemIndex = currentItem.index;
 
-      const {
-        top: currentItemTop,
-        height: currentItemHeight
-      } = getScaledClientRect(currentItem, _transformScale);
+      const scaledClientRect = getScaledClientRect(currentItem, _transformScale);
+      const currentItemTop = scaledClientRect[horizontal ? 'left' : 'top'];
+      const currentItemHeight = scaledClientRect[horizontal ? 'width' : 'height'];
 
       let margin;
 
       if (previousItem !== undefined) {
-        margin = currentItemTop - getScaledClientRect(previousItem, _transformScale).bottom;
+        margin = currentItemTop - getScaledClientRect(previousItem, _transformScale)[horizontal ? 'right' : 'bottom'];
       } else {
-        margin = currentItemTop - getScaledClientRect(_occludedContentBefore, _transformScale).bottom;
+        margin = currentItemTop - getScaledClientRect(_occludedContentBefore, _transformScale)[horizontal ? 'right' : 'bottom'];
       }
 
       const newHeight = roundTo(currentItemHeight + margin);

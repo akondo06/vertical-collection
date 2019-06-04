@@ -236,6 +236,7 @@ const VerticalCollection = Component.extend({
     const renderFromLast = this.get('renderFromLast');
     const shouldRecycle = this.get('shouldRecycle');
     const occlusionTagName = this.get('occlusionTagName');
+    const horizontal = this.get('horizontal');
 
     const idForFirstItem = this.get('idForFirstItem');
     const key = this.get('key');
@@ -255,7 +256,8 @@ const VerticalCollection = Component.extend({
         renderFromLast,
         shouldRecycle,
         startingIndex,
-        occlusionTagName
+        occlusionTagName,
+        horizontal
       }
     );
 

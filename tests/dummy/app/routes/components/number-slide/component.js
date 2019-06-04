@@ -21,10 +21,12 @@ export default Component.extend({
   tagName: 'number-slide',
   attributeBindings: ['style'],
   isDynamic: false,
+  isHorizontal: false,
   prefixed: false,
   style: computed('isDynamic', 'item', function() {
     let item = this.get('item');
     let isDynamic = this.get('isDynamic');
+    let isHorizontal = this.get('isHorizontal');
 
     let {
       height,
@@ -35,7 +37,8 @@ export default Component.extend({
     let styleStr = `background: rgba(0,125,255,${opacity});`;
 
     if (isDynamic) {
-      styleStr += `height: ${Math.round(height)}px; box-sizing: content-box;`;
+      const prop = isHorizontal ? 'width' : 'height';
+      styleStr += `${prop}: ${Math.round(height)}px; box-sizing: content-box;`;
     }
 
     return htmlSafe(styleStr);

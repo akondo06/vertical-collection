@@ -12,6 +12,7 @@ Router.map(function() {
     this.route('infinite-scroll');
     this.route('flexible-layout');
     this.route('scrollable-body');
+    this.route('horizontal');
   });
 
   this.route('settings');
