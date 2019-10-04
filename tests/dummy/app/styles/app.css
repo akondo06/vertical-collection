@@ -233,3 +233,25 @@ img.auto-size {
 vertical-item {
   display: block;
 }
+
+.table-wrapper.grid-ish {
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: wrap;
+}
+
+.table-wrapper.grid-ish number-slide {
+  flex: 0 0 33%;
+
+  width: 33%;
+  height: 90px;
+
+  margin: 0;
+}
+.table-wrapper.grid-ish .occluded-content {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
